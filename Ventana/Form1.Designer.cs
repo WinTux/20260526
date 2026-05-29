@@ -42,19 +42,31 @@
             label2 = new Label();
             button1 = new Button();
             tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
             groupBox2 = new GroupBox();
+            groupBox4 = new GroupBox();
+            button5 = new Button();
+            txtAnyoEliminar = new TextBox();
+            label8 = new Label();
+            txtAutorEliminar = new TextBox();
+            label7 = new Label();
+            txtTituloeliminar = new TextBox();
+            label6 = new Label();
+            txtPila = new TextBox();
             groupBox3 = new GroupBox();
-            label3 = new Label();
-            textBox1 = new TextBox();
-            label4 = new Label();
-            textBox2 = new TextBox();
+            txtAutor = new TextBox();
+            txtTitulo = new TextBox();
+            txtAnyo = new TextBox();
+            label5 = new Label();
             button4 = new Button();
+            label4 = new Label();
+            label3 = new Label();
+            tabPage3 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
             tabPage2.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
@@ -199,79 +211,182 @@
             tabPage2.Text = "Ejemplo de pila";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(groupBox4);
+            groupBox2.Controls.Add(txtPila);
+            groupBox2.Controls.Add(groupBox3);
+            groupBox2.Location = new Point(19, 25);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(580, 301);
+            groupBox2.TabIndex = 0;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Librería";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(button5);
+            groupBox4.Controls.Add(txtAnyoEliminar);
+            groupBox4.Controls.Add(label8);
+            groupBox4.Controls.Add(txtAutorEliminar);
+            groupBox4.Controls.Add(label7);
+            groupBox4.Controls.Add(txtTituloeliminar);
+            groupBox4.Controls.Add(label6);
+            groupBox4.Location = new Point(395, 22);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(179, 218);
+            groupBox4.TabIndex = 2;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Eliminar libro";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(85, 154);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 6;
+            button5.Text = "Eliminar";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // txtAnyoEliminar
+            // 
+            txtAnyoEliminar.Location = new Point(60, 94);
+            txtAnyoEliminar.Name = "txtAnyoEliminar";
+            txtAnyoEliminar.Size = new Size(100, 23);
+            txtAnyoEliminar.TabIndex = 5;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(7, 97);
+            label8.Name = "label8";
+            label8.Size = new Size(29, 15);
+            label8.TabIndex = 4;
+            label8.Text = "Año";
+            // 
+            // txtAutorEliminar
+            // 
+            txtAutorEliminar.Location = new Point(60, 59);
+            txtAutorEliminar.Name = "txtAutorEliminar";
+            txtAutorEliminar.Size = new Size(100, 23);
+            txtAutorEliminar.TabIndex = 3;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(7, 62);
+            label7.Name = "label7";
+            label7.Size = new Size(37, 15);
+            label7.TabIndex = 2;
+            label7.Text = "Autor";
+            // 
+            // txtTituloeliminar
+            // 
+            txtTituloeliminar.Location = new Point(60, 22);
+            txtTituloeliminar.Name = "txtTituloeliminar";
+            txtTituloeliminar.Size = new Size(100, 23);
+            txtTituloeliminar.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(7, 25);
+            label6.Name = "label6";
+            label6.Size = new Size(38, 15);
+            label6.TabIndex = 0;
+            label6.Text = "Titulo";
+            // 
+            // txtPila
+            // 
+            txtPila.Location = new Point(180, 32);
+            txtPila.Multiline = true;
+            txtPila.Name = "txtPila";
+            txtPila.Size = new Size(209, 208);
+            txtPila.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txtAutor);
+            groupBox3.Controls.Add(txtTitulo);
+            groupBox3.Controls.Add(txtAnyo);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Controls.Add(button4);
+            groupBox3.Controls.Add(label4);
+            groupBox3.Controls.Add(label3);
+            groupBox3.Location = new Point(6, 22);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(168, 218);
+            groupBox3.TabIndex = 0;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Agregar libro";
+            // 
+            // txtAutor
+            // 
+            txtAutor.Location = new Point(57, 59);
+            txtAutor.Name = "txtAutor";
+            txtAutor.Size = new Size(100, 23);
+            txtAutor.TabIndex = 8;
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.Location = new Point(57, 22);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(100, 23);
+            txtTitulo.TabIndex = 7;
+            // 
+            // txtAnyo
+            // 
+            txtAnyo.Location = new Point(57, 94);
+            txtAnyo.Name = "txtAnyo";
+            txtAnyo.Size = new Size(100, 23);
+            txtAnyo.TabIndex = 6;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(9, 97);
+            label5.Name = "label5";
+            label5.Size = new Size(29, 15);
+            label5.TabIndex = 5;
+            label5.Text = "Año";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(82, 154);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 4;
+            button4.Text = "Registrar libro";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(9, 62);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Autor";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(7, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 0;
+            label3.Text = "Titulo";
+            // 
             // tabPage3
             // 
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(605, 351);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
+            tabPage3.Text = "Ejemplo de colas";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(groupBox3);
-            groupBox2.Location = new Point(19, 25);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(551, 301);
-            groupBox2.TabIndex = 0;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Librería";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(button4);
-            groupBox3.Controls.Add(textBox2);
-            groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(textBox1);
-            groupBox3.Controls.Add(label3);
-            groupBox3.Location = new Point(20, 22);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(200, 218);
-            groupBox3.TabIndex = 0;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Agregar libro";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(27, 36);
-            label3.Name = "label3";
-            label3.Size = new Size(35, 15);
-            label3.TabIndex = 0;
-            label3.Text = "titulo";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(77, 33);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(29, 73);
-            label4.Name = "label4";
-            label4.Size = new Size(35, 15);
-            label4.TabIndex = 2;
-            label4.Text = "autor";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(77, 70);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(102, 116);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 4;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -288,6 +403,9 @@
             groupBox1.PerformLayout();
             tabPage2.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ResumeLayout(false);
@@ -318,5 +436,18 @@
         private Label label4;
         private TextBox textBox1;
         private Label label3;
+        private TextBox txtAnyo;
+        private Label label5;
+        private TextBox txtAutor;
+        private TextBox txtTitulo;
+        private TextBox txtPila;
+        private GroupBox groupBox4;
+        private Button button5;
+        private TextBox txtAnyoEliminar;
+        private Label label8;
+        private TextBox txtAutorEliminar;
+        private Label label7;
+        private TextBox txtTituloeliminar;
+        private Label label6;
     }
 }
