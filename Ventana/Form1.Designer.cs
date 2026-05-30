@@ -61,6 +61,17 @@
             label4 = new Label();
             label3 = new Label();
             tabPage3 = new TabPage();
+            groupBox6 = new GroupBox();
+            button7 = new Button();
+            txtIdAutor = new TextBox();
+            label11 = new Label();
+            txtCola = new TextBox();
+            groupBox5 = new GroupBox();
+            button6 = new Button();
+            txtApellidoAutor = new TextBox();
+            label10 = new Label();
+            txtNombreAutor = new TextBox();
+            label9 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -68,6 +79,9 @@
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
+            tabPage3.SuspendLayout();
+            groupBox6.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -381,12 +395,117 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(groupBox6);
+            tabPage3.Controls.Add(txtCola);
+            tabPage3.Controls.Add(groupBox5);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(605, 351);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Ejemplo de colas";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(button7);
+            groupBox6.Controls.Add(txtIdAutor);
+            groupBox6.Controls.Add(label11);
+            groupBox6.Location = new Point(14, 170);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(175, 161);
+            groupBox6.TabIndex = 2;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Eliminar autor";
+            // 
+            // button7
+            // 
+            button7.Location = new Point(94, 73);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 23);
+            button7.TabIndex = 2;
+            button7.Text = "Eliminar";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // txtIdAutor
+            // 
+            txtIdAutor.Location = new Point(69, 31);
+            txtIdAutor.Name = "txtIdAutor";
+            txtIdAutor.Size = new Size(100, 23);
+            txtIdAutor.TabIndex = 1;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(10, 31);
+            label11.Name = "label11";
+            label11.Size = new Size(21, 15);
+            label11.TabIndex = 0;
+            label11.Text = "ID:";
+            // 
+            // txtCola
+            // 
+            txtCola.Location = new Point(204, 23);
+            txtCola.Multiline = true;
+            txtCola.Name = "txtCola";
+            txtCola.Size = new Size(387, 308);
+            txtCola.TabIndex = 1;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(button6);
+            groupBox5.Controls.Add(txtApellidoAutor);
+            groupBox5.Controls.Add(label10);
+            groupBox5.Controls.Add(txtNombreAutor);
+            groupBox5.Controls.Add(label9);
+            groupBox5.Location = new Point(14, 14);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(175, 112);
+            groupBox5.TabIndex = 0;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Agregar nuevo autor";
+            // 
+            // button6
+            // 
+            button6.Location = new Point(94, 80);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 4;
+            button6.Text = "Agregar";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // txtApellidoAutor
+            // 
+            txtApellidoAutor.Location = new Point(69, 51);
+            txtApellidoAutor.Name = "txtApellidoAutor";
+            txtApellidoAutor.Size = new Size(100, 23);
+            txtApellidoAutor.TabIndex = 3;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(10, 54);
+            label10.Name = "label10";
+            label10.Size = new Size(54, 15);
+            label10.TabIndex = 2;
+            label10.Text = "Apellido:";
+            // 
+            // txtNombreAutor
+            // 
+            txtNombreAutor.Location = new Point(69, 22);
+            txtNombreAutor.Name = "txtNombreAutor";
+            txtNombreAutor.Size = new Size(100, 23);
+            txtNombreAutor.TabIndex = 1;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(10, 25);
+            label9.Name = "label9";
+            label9.Size = new Size(54, 15);
+            label9.TabIndex = 0;
+            label9.Text = "Nombre:";
             // 
             // Form1
             // 
@@ -408,6 +527,12 @@
             groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -434,7 +559,7 @@
         private Button button4;
         private TextBox textBox2;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtIdAutor;
         private Label label3;
         private TextBox txtAnyo;
         private Label label5;
@@ -449,5 +574,15 @@
         private Label label7;
         private TextBox txtTituloeliminar;
         private Label label6;
+        private GroupBox groupBox5;
+        private Button button6;
+        private TextBox txtApellidoAutor;
+        private Label label10;
+        private TextBox txtNombreAutor;
+        private Label label9;
+        private GroupBox groupBox6;
+        private TextBox txtCola;
+        private Button button7;
+        private Label label11;
     }
 }

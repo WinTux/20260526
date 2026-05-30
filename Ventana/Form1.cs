@@ -8,6 +8,7 @@ namespace Ventana
         List<string> listaCompras;
         Stack<Libro> pilaDeLibros, pilaAuxiliar;
         Queue<Autor> colaDeAutores;
+        int contadorAutores = 0;
         public Form1()
         {
             InitializeComponent();
@@ -85,7 +86,8 @@ namespace Ventana
             string titulo = txtTituloeliminar.Text;
             string autor = txtAutorEliminar.Text;
             int anyo = int.Parse(txtAnyoEliminar.Text);
-            while (pilaDeLibros.Count > 0) {
+            while (pilaDeLibros.Count > 0)
+            {
                 Libro actual = pilaDeLibros.Pop();
                 if (!actual.autor.Equals(autor) && !actual.titulo.Equals(titulo) && actual.anyo != anyo)
                     pilaAuxiliar.Push(actual);
@@ -95,6 +97,39 @@ namespace Ventana
                 pilaDeLibros.Push(pilaAuxiliar.Pop());
             }
             mostrarPila();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string nombre = txtNombreAutor.Text;
+            string apellido = txtApellidoAutor.Text;
+            Autor autor = new Autor(nombre, apellido);
+            autor.id = ++contadorAutores;
+            colaDeAutores.Enqueue(autor);
+            mostrarCola();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtIdAutor.Text);
+            Queue<Autor> colaAuxiliar = new Queue<Autor>();
+            while (colaDeAutores.Count > 0)
+            {
+                Autor autor = colaDeAutores.Dequeue();
+                if (autor.id == id)
+                    Debug.WriteLine("Autor eliminado: " + autor.nombre + " " + autor.apellido);
+                else
+                    colaAuxiliar.Enqueue(autor);
+            }
+            while (colaAuxiliar.Count > 0)
+                colaDeAutores.Enqueue(colaAuxiliar.Dequeue());
+            mostrarCola();
+        }
+        private void mostrarCola()
+        {
+            txtCola.Clear();
+            foreach (Autor autor in colaDeAutores)
+                txtCola.AppendText(autor.nombre + " " + autor.apellido + " (ID: " + autor.id + ")" + Environment.NewLine);
         }
     }
 }
