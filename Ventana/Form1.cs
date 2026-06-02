@@ -1,3 +1,4 @@
+using Microsoft.Data.SqlClient;
 using System.Diagnostics;
 using Ventana.Models;
 
@@ -130,6 +131,26 @@ namespace Ventana
             txtCola.Clear();
             foreach (Autor autor in colaDeAutores)
                 txtCola.AppendText(autor.nombre + " " + autor.apellido + " (ID: " + autor.id + ")" + Environment.NewLine);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Server=.;Database=Tienda;User Id=sa;Password=123456ABCxyz;Trusted_Connection=True;TrustServerCertificate=True;";
+            SqlConnection conn = new SqlConnection(connectionString);
+            try
+            {
+                
+                conn.Open();
+                MessageBox.Show("Conexión exitosa a la base de datos");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al conectar a la base de datos");
+            }
+            finally {
+                conn.Close();
+            }
         }
     }
 }

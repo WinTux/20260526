@@ -72,6 +72,8 @@
             label10 = new Label();
             txtNombreAutor = new TextBox();
             label9 = new Label();
+            tabPage4 = new TabPage();
+            button8 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -82,6 +84,7 @@
             tabPage3.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -100,6 +103,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(12, 62);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -507,6 +511,26 @@
             label9.TabIndex = 0;
             label9.Text = "Nombre:";
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(button8);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(605, 351);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Ejemplo DDBB";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(16, 15);
+            button8.Name = "button8";
+            button8.Size = new Size(128, 23);
+            button8.TabIndex = 0;
+            button8.Text = "Probar conexión";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -533,6 +557,7 @@
             groupBox6.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
+            tabPage4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -584,5 +609,7 @@
         private TextBox txtCola;
         private Button button7;
         private Label label11;
+        private TabPage tabPage4;
+        private Button button8;
     }
 }
