@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblTitulo = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
@@ -73,7 +74,16 @@
             txtNombreAutor = new TextBox();
             label9 = new Label();
             tabPage4 = new TabPage();
+            groupBox7 = new GroupBox();
+            button11 = new Button();
+            label12 = new Label();
+            button10 = new Button();
+            txtPrecioMaximo = new TextBox();
+            button9 = new Button();
+            DGVproductos = new DataGridView();
             button8 = new Button();
+            sourceProductos = new BindingSource(components);
+            button12 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -85,6 +95,9 @@
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
             tabPage4.SuspendLayout();
+            groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DGVproductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sourceProductos).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -513,6 +526,8 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(button12);
+            tabPage4.Controls.Add(groupBox7);
             tabPage4.Controls.Add(button8);
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
@@ -520,6 +535,78 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Ejemplo DDBB";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(button11);
+            groupBox7.Controls.Add(label12);
+            groupBox7.Controls.Add(button10);
+            groupBox7.Controls.Add(txtPrecioMaximo);
+            groupBox7.Controls.Add(button9);
+            groupBox7.Controls.Add(DGVproductos);
+            groupBox7.Location = new Point(151, 15);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(439, 325);
+            groupBox7.TabIndex = 1;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Rescatando los datos";
+            // 
+            // button11
+            // 
+            button11.Location = new Point(89, 208);
+            button11.Name = "button11";
+            button11.Size = new Size(75, 28);
+            button11.TabIndex = 5;
+            button11.Text = "Filtrar";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(15, 182);
+            label12.Name = "label12";
+            label12.Size = new Size(68, 15);
+            label12.TabIndex = 4;
+            label12.Text = "Precio max.";
+            // 
+            // button10
+            // 
+            button10.Location = new Point(213, 219);
+            button10.Name = "button10";
+            button10.Size = new Size(186, 23);
+            button10.TabIndex = 3;
+            button10.Text = "Carga tabla - BindingSource";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // txtPrecioMaximo
+            // 
+            txtPrecioMaximo.Location = new Point(85, 179);
+            txtPrecioMaximo.Name = "txtPrecioMaximo";
+            txtPrecioMaximo.Size = new Size(79, 23);
+            txtPrecioMaximo.TabIndex = 2;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(213, 178);
+            button9.Name = "button9";
+            button9.Size = new Size(186, 23);
+            button9.TabIndex = 1;
+            button9.Text = "Cargar tabla - Directo";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // DGVproductos
+            // 
+            DGVproductos.AllowUserToAddRows = false;
+            DGVproductos.AllowUserToDeleteRows = false;
+            DGVproductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGVproductos.Location = new Point(15, 22);
+            DGVproductos.Name = "DGVproductos";
+            DGVproductos.ReadOnly = true;
+            DGVproductos.Size = new Size(384, 150);
+            DGVproductos.TabIndex = 0;
             // 
             // button8
             // 
@@ -531,6 +618,16 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
+            // button12
+            // 
+            button12.Location = new Point(16, 57);
+            button12.Name = "button12";
+            button12.Size = new Size(128, 23);
+            button12.TabIndex = 2;
+            button12.Text = "Crear / Editar";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -540,6 +637,7 @@
             Controls.Add(lblTitulo);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -558,6 +656,10 @@
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             tabPage4.ResumeLayout(false);
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DGVproductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sourceProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -611,5 +713,14 @@
         private Label label11;
         private TabPage tabPage4;
         private Button button8;
+        private GroupBox groupBox7;
+        private TextBox txtPrecioMaximo;
+        private Button button9;
+        private DataGridView DGVproductos;
+        private BindingSource sourceProductos;
+        private Button button10;
+        private Button button11;
+        private Label label12;
+        private Button button12;
     }
 }

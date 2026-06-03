@@ -1,4 +1,5 @@
 using Microsoft.Data.SqlClient;
+using System.Data;
 using System.Diagnostics;
 using Ventana.Models;
 
@@ -10,6 +11,7 @@ namespace Ventana
         Stack<Libro> pilaDeLibros, pilaAuxiliar;
         Queue<Autor> colaDeAutores;
         int contadorAutores = 0;
+        string connectionString = "Server=.;Database=Tienda;User Id=sa;Password=123456ABCxyz;Trusted_Connection=True;TrustServerCertificate=True;";
         public Form1()
         {
             InitializeComponent();
@@ -135,11 +137,10 @@ namespace Ventana
 
         private void button8_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=.;Database=Tienda;User Id=sa;Password=123456ABCxyz;Trusted_Connection=True;TrustServerCertificate=True;";
             SqlConnection conn = new SqlConnection(connectionString);
             try
             {
-                
+
                 conn.Open();
                 MessageBox.Show("Conexión exitosa a la base de datos");
             }
@@ -148,9 +149,81 @@ namespace Ventana
                 Debug.WriteLine("Error al conectar a la base de datos: " + ex.Message);
                 MessageBox.Show("Error al conectar a la base de datos");
             }
-            finally {
+            finally
+            {
                 conn.Close();
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            CargarDatos("SELECT * FROM Productos;");
+        }
+        private void CargarDatos(string consulta)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlDataAdapter adaptador = new SqlDataAdapter(consulta, conn);
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+                    DGVproductos.DataSource = tabla;
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al conectar a la base de datos");
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            cargarDatos2();
+        }
+
+        private void cargarDatos2()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlDataAdapter adaptador = new SqlDataAdapter("select * from Productos", conn);
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+                sourceProductos.DataSource = tabla;
+                DGVproductos.DataSource = sourceProductos;
+                conn.Close();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cargarDatos2();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            int precioMax = int.Parse(txtPrecioMaximo.Text);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Productos WHERE Precio <= @p", conn);
+                adaptador.SelectCommand.Parameters.AddWithValue("@p", precioMax);
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+                sourceProductos.DataSource = tabla;
+                DGVproductos.DataSource = sourceProductos;
+                conn.Close();
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            FormAgregarEditarProducto form = new FormAgregarEditarProducto();
+            form.Show();
         }
     }
 }
