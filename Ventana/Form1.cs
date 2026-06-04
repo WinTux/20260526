@@ -222,8 +222,31 @@ namespace Ventana
 
         private void button12_Click(object sender, EventArgs e)
         {
-            FormAgregarEditarProducto form = new FormAgregarEditarProducto();
+            FormAgregarEditarProducto form = new FormAgregarEditarProducto(-1);
             form.Show();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            int valorID = int.Parse(DGVproductos.CurrentRow.Cells["Id"].Value.ToString());
+            Debug.WriteLine("ID del producto seleccionado: " + valorID);
+            FormAgregarEditarProducto form = new FormAgregarEditarProducto(valorID);
+            form.Show();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                int valorID = int.Parse(DGVproductos.CurrentRow.Cells["Id"].Value.ToString());
+                SqlCommand cmd = new SqlCommand("DELETE Productos WHERE Id = @id;", conn);
+                cmd.Parameters.AddWithValue("@id", valorID);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Producto eliminado correctamente");
+                cargarDatos2();
+                conn.Close();
+            }
         }
     }
 }

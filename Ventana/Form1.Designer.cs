@@ -74,6 +74,8 @@
             txtNombreAutor = new TextBox();
             label9 = new Label();
             tabPage4 = new TabPage();
+            button13 = new Button();
+            button12 = new Button();
             groupBox7 = new GroupBox();
             button11 = new Button();
             label12 = new Label();
@@ -83,7 +85,7 @@
             DGVproductos = new DataGridView();
             button8 = new Button();
             sourceProductos = new BindingSource(components);
-            button12 = new Button();
+            button14 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -526,6 +528,8 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(button14);
+            tabPage4.Controls.Add(button13);
             tabPage4.Controls.Add(button12);
             tabPage4.Controls.Add(groupBox7);
             tabPage4.Controls.Add(button8);
@@ -535,6 +539,26 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Ejemplo DDBB";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            button13.Location = new Point(16, 104);
+            button13.Name = "button13";
+            button13.Size = new Size(128, 23);
+            button13.TabIndex = 3;
+            button13.Text = "Editar producto";
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
+            // 
+            // button12
+            // 
+            button12.Location = new Point(16, 57);
+            button12.Name = "button12";
+            button12.Size = new Size(128, 23);
+            button12.TabIndex = 2;
+            button12.Text = "Crear";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
             // 
             // groupBox7
             // 
@@ -618,15 +642,15 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
-            // button12
+            // button14
             // 
-            button12.Location = new Point(16, 57);
-            button12.Name = "button12";
-            button12.Size = new Size(128, 23);
-            button12.TabIndex = 2;
-            button12.Text = "Crear / Editar";
-            button12.UseVisualStyleBackColor = true;
-            button12.Click += button12_Click;
+            button14.Location = new Point(16, 164);
+            button14.Name = "button14";
+            button14.Size = new Size(128, 23);
+            button14.TabIndex = 4;
+            button14.Text = "Eliminar";
+            button14.UseVisualStyleBackColor = true;
+            button14.Click += button14_Click;
             // 
             // Form1
             // 
@@ -722,5 +746,7 @@
         private Button button11;
         private Label label12;
         private Button button12;
+        private Button button13;
+        private Button button14;
     }
 }
