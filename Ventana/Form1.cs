@@ -1,6 +1,8 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Diagnostics;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using Ventana.Models;
 
 namespace Ventana
@@ -246,6 +248,89 @@ namespace Ventana
                 MessageBox.Show("Producto eliminado correctamente");
                 cargarDatos2();
                 conn.Close();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Archivos de texto (*.txt)|*.txt|Archivo de configuración App (*.appconfigdot)|*.appconfigdot";
+                sfd.Title = "Guardar archivo de configuración de prueba";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    string texto = txtCampoDeTexto.Text;
+                    File.WriteAllText(sfd.FileName, texto);
+                    MessageBox.Show("Archivo guardado correctamente");
+                }
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Archivos de texto (*.txt)|*.txt|Archivo de configuración App (*.appconfigdot)|*.appconfigdot";
+                ofd.Title = "Abrir archivo de configuración de prueba";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string contenido = File.ReadAllText(ofd.FileName);
+                    txtCampoDeTexto.Text = contenido;
+                    MessageBox.Show("Archivo cargado correctamente");
+                }
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Archivos de texto (*.txt)|*.txt|Archivo de configuración App (*.appconfigdot)|*.appconfigdot";
+                ofd.Title = "Abrir archivo de configuración de prueba";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string texto = txtCampoDeTexto.Text;
+                    File.AppendAllText(ofd.FileName, Environment.NewLine + texto);
+                    MessageBox.Show("Archivo ampliado correctamente");
+                }
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Autor autor = new Autor(txtAutorNombreArchivo.Text, txtAutorApellidoArchivo.Text);
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "JSON|*.json";
+                sfd.Title = "Guardar archivo de configuración de prueba";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    var opciones = new JsonSerializerOptions
+                    {
+                        WriteIndented = true,
+                        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                    };
+                    string json = JsonSerializer.Serialize(autor, opciones);
+                    File.WriteAllText(sfd.FileName, json);
+                    MessageBox.Show("Archivo de objeto guardado correctamente");
+                }
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "JSON|*.json";
+                ofd.Title = "Abrir archivo de configuración de prueba";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string contenido = File.ReadAllText(ofd.FileName);
+                    Autor autorRecuperado = JsonSerializer.Deserialize<Autor>(contenido);
+                    txtAutorNombreArchivo.Text = autorRecuperado.nombre;
+                    txtAutorApellidoArchivo.Text = autorRecuperado.apellido;
+                    MessageBox.Show("Archivo deserializado correctamente");
+                }
             }
         }
     }

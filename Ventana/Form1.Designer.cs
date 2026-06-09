@@ -74,6 +74,7 @@
             txtNombreAutor = new TextBox();
             label9 = new Label();
             tabPage4 = new TabPage();
+            button14 = new Button();
             button13 = new Button();
             button12 = new Button();
             groupBox7 = new GroupBox();
@@ -84,8 +85,20 @@
             button9 = new Button();
             DGVproductos = new DataGridView();
             button8 = new Button();
+            tabPage5 = new TabPage();
+            groupBox9 = new GroupBox();
+            button18 = new Button();
+            txtAutorApellidoArchivo = new TextBox();
+            label14 = new Label();
+            txtAutorNombreArchivo = new TextBox();
+            label13 = new Label();
+            groupBox8 = new GroupBox();
+            button17 = new Button();
+            button16 = new Button();
+            button15 = new Button();
+            txtCampoDeTexto = new TextBox();
             sourceProductos = new BindingSource(components);
-            button14 = new Button();
+            button19 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -99,6 +112,9 @@
             tabPage4.SuspendLayout();
             groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGVproductos).BeginInit();
+            tabPage5.SuspendLayout();
+            groupBox9.SuspendLayout();
+            groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sourceProductos).BeginInit();
             SuspendLayout();
             // 
@@ -119,6 +135,7 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.Location = new Point(12, 62);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -540,6 +557,16 @@
             tabPage4.Text = "Ejemplo DDBB";
             tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button14
+            // 
+            button14.Location = new Point(16, 164);
+            button14.Name = "button14";
+            button14.Size = new Size(128, 23);
+            button14.TabIndex = 4;
+            button14.Text = "Eliminar";
+            button14.UseVisualStyleBackColor = true;
+            button14.Click += button14_Click;
+            // 
             // button13
             // 
             button13.Location = new Point(16, 104);
@@ -642,15 +669,135 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
-            // button14
+            // tabPage5
             // 
-            button14.Location = new Point(16, 164);
-            button14.Name = "button14";
-            button14.Size = new Size(128, 23);
-            button14.TabIndex = 4;
-            button14.Text = "Eliminar";
-            button14.UseVisualStyleBackColor = true;
-            button14.Click += button14_Click;
+            tabPage5.Controls.Add(groupBox9);
+            tabPage5.Controls.Add(groupBox8);
+            tabPage5.Location = new Point(4, 24);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(605, 351);
+            tabPage5.TabIndex = 4;
+            tabPage5.Text = "Manejo de archivos";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            groupBox9.Controls.Add(button19);
+            groupBox9.Controls.Add(button18);
+            groupBox9.Controls.Add(txtAutorApellidoArchivo);
+            groupBox9.Controls.Add(label14);
+            groupBox9.Controls.Add(txtAutorNombreArchivo);
+            groupBox9.Controls.Add(label13);
+            groupBox9.Location = new Point(15, 183);
+            groupBox9.Name = "groupBox9";
+            groupBox9.Size = new Size(571, 153);
+            groupBox9.TabIndex = 1;
+            groupBox9.TabStop = false;
+            groupBox9.Text = "Objetos";
+            // 
+            // button18
+            // 
+            button18.Location = new Point(39, 106);
+            button18.Name = "button18";
+            button18.Size = new Size(75, 23);
+            button18.TabIndex = 4;
+            button18.Text = "Guardar";
+            button18.UseVisualStyleBackColor = true;
+            button18.Click += button18_Click;
+            // 
+            // txtAutorApellidoArchivo
+            // 
+            txtAutorApellidoArchivo.Location = new Point(99, 67);
+            txtAutorApellidoArchivo.Name = "txtAutorApellidoArchivo";
+            txtAutorApellidoArchivo.Size = new Size(100, 23);
+            txtAutorApellidoArchivo.TabIndex = 3;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(39, 70);
+            label14.Name = "label14";
+            label14.Size = new Size(54, 15);
+            label14.TabIndex = 2;
+            label14.Text = "Apellido:";
+            // 
+            // txtAutorNombreArchivo
+            // 
+            txtAutorNombreArchivo.Location = new Point(99, 26);
+            txtAutorNombreArchivo.Name = "txtAutorNombreArchivo";
+            txtAutorNombreArchivo.Size = new Size(100, 23);
+            txtAutorNombreArchivo.TabIndex = 1;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(39, 29);
+            label13.Name = "label13";
+            label13.Size = new Size(54, 15);
+            label13.TabIndex = 0;
+            label13.Text = "Nombre:";
+            // 
+            // groupBox8
+            // 
+            groupBox8.Controls.Add(button17);
+            groupBox8.Controls.Add(button16);
+            groupBox8.Controls.Add(button15);
+            groupBox8.Controls.Add(txtCampoDeTexto);
+            groupBox8.Location = new Point(15, 14);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new Size(571, 163);
+            groupBox8.TabIndex = 0;
+            groupBox8.TabStop = false;
+            groupBox8.Text = "Texto plano";
+            // 
+            // button17
+            // 
+            button17.Location = new Point(447, 118);
+            button17.Name = "button17";
+            button17.Size = new Size(106, 23);
+            button17.TabIndex = 3;
+            button17.Text = "Append cambios";
+            button17.UseVisualStyleBackColor = true;
+            button17.Click += button17_Click;
+            // 
+            // button16
+            // 
+            button16.Location = new Point(334, 118);
+            button16.Name = "button16";
+            button16.Size = new Size(107, 23);
+            button16.TabIndex = 2;
+            button16.Text = "Abrir archivo";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
+            // 
+            // button15
+            // 
+            button15.Location = new Point(220, 118);
+            button15.Name = "button15";
+            button15.Size = new Size(108, 23);
+            button15.TabIndex = 1;
+            button15.Text = "Guardar archivo";
+            button15.UseVisualStyleBackColor = true;
+            button15.Click += button15_Click;
+            // 
+            // txtCampoDeTexto
+            // 
+            txtCampoDeTexto.Location = new Point(6, 22);
+            txtCampoDeTexto.Multiline = true;
+            txtCampoDeTexto.Name = "txtCampoDeTexto";
+            txtCampoDeTexto.ScrollBars = ScrollBars.Both;
+            txtCampoDeTexto.Size = new Size(547, 90);
+            txtCampoDeTexto.TabIndex = 0;
+            // 
+            // button19
+            // 
+            button19.Location = new Point(124, 106);
+            button19.Name = "button19";
+            button19.Size = new Size(75, 23);
+            button19.TabIndex = 5;
+            button19.Text = "Cargar";
+            button19.UseVisualStyleBackColor = true;
+            button19.Click += button19_Click;
             // 
             // Form1
             // 
@@ -683,6 +830,11 @@
             groupBox7.ResumeLayout(false);
             groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGVproductos).EndInit();
+            tabPage5.ResumeLayout(false);
+            groupBox9.ResumeLayout(false);
+            groupBox9.PerformLayout();
+            groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)sourceProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -748,5 +900,18 @@
         private Button button12;
         private Button button13;
         private Button button14;
+        private TabPage tabPage5;
+        private GroupBox groupBox8;
+        private TextBox txtCampoDeTexto;
+        private Button button15;
+        private Button button16;
+        private Button button17;
+        private GroupBox groupBox9;
+        private Button button18;
+        private TextBox txtAutorApellidoArchivo;
+        private Label label14;
+        private TextBox txtAutorNombreArchivo;
+        private Label label13;
+        private Button button19;
     }
 }
